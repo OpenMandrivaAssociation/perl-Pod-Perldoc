@@ -5,7 +5,7 @@
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Release:    %mkrel 2
 
 Summary:    Customized option parser for Pod::Perldoc
 License:    GPL+ or Artistic
@@ -21,6 +21,7 @@ BuildRequires: perl(Symbol)
 BuildRequires: perl(Text::ParseWords)
 BuildRequires: perl(strict)
 BuildRequires: perl(warnings)
+
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
@@ -56,8 +57,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc ChangeLog README
+%doc ChangeLog README META.yml
 %{_mandir}/man3/*
 %perl_vendorlib/*
 /usr/bin/perldoc
-
