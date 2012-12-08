@@ -1,11 +1,15 @@
 %define upstream_name    Pod-Perldoc
 %define upstream_version 3.15
 
+%if %{_use_internal_dependency_generator}
+%define __noautoreq 'perl\\(Tk\\)|perl\\(Tk::Pod\\)'
+%else
 %define _requires_exceptions perl(Tk)\\|perl(Tk::Pod)
+%endif
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 5
+Release:    6
 
 Summary:    Customized option parser for Pod::Perldoc
 License:    GPL+ or Artistic
@@ -21,9 +25,9 @@ BuildRequires: perl(Symbol)
 BuildRequires: perl(Text::ParseWords)
 BuildRequires: perl(strict)
 BuildRequires: perl(warnings)
+BuildRequires: perl-devel
 
 BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 _perldoc_ looks up a piece of documentation in .pod format that is embedded
@@ -42,22 +46,42 @@ documentation, see the the perltoc manpage page.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+%__perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc ChangeLog README META.yml
 %{_mandir}/man3/*
 %perl_vendorlib/*
-/usr/bin/perldoc
+%{_bindir}/perldoc
+
+%changelog
+* Sun Jan 22 2012 Oden Eriksson <oeriksson@mandriva.com> 3.150.0-5mdv2012.0
++ Revision: 765598
+- rebuilt for perl-5.14.2
+
+* Sat Jan 21 2012 Oden Eriksson <oeriksson@mandriva.com> 3.150.0-4
++ Revision: 764126
+- rebuilt for perl-5.14.x
+
+* Sat Apr 23 2011 Funda Wang <fwang@mandriva.org> 3.150.0-3
++ Revision: 657827
+- rebuild for updated spec-helper
+
+* Mon Jan 03 2011 Jérôme Quelin <jquelin@mandriva.org> 3.150.0-2mdv2011.0
++ Revision: 628031
+- using meta.yml for prereqs
+
+* Mon Dec 07 2009 Jérôme Quelin <jquelin@mandriva.org> 3.150.0-1mdv2011.0
++ Revision: 474332
+- import perl-Pod-Perldoc
+
+
+* Sun Dec 06 2009 cpan2dist 3.15-1mdv
+- initial mdv release, generated with cpan2dist
