@@ -1,5 +1,5 @@
-%define upstream_name    Pod-Perldoc
-%define upstream_version 3.17
+%define	modname	Pod-Perldoc
+%define modver	3.17
 
 %if %{_use_internal_dependency_generator}
 %define __noautoreq 'perl\\(Tk\\)|perl\\(Tk::Pod\\)'
@@ -7,27 +7,24 @@
 %define _requires_exceptions perl(Tk)\\|perl(Tk::Pod)
 %endif
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    1
+Name:		perl-%{modname}
+Version:	%{perl_convert_version %{modver}}
+Release:	1
 
-Summary:    Customized option parser for Pod::Perldoc
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Pod/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Customized option parser for Pod::Perldoc
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{modname}
+Source0:	http://www.cpan.org/modules/by-module/Pod/%{modname}-%{modver}.tar.gz
 
-BuildRequires: perl(Config)
-BuildRequires: perl(Fcntl)
-BuildRequires: perl(File::Spec::Functions)
-BuildRequires: perl(File::Temp)
-BuildRequires: perl(Symbol)
-BuildRequires: perl(Text::ParseWords)
-BuildRequires: perl(strict)
-BuildRequires: perl(warnings)
-BuildRequires: perl-devel
+BuildRequires:	perl(Fcntl)
+BuildRequires:	perl(File::Spec::Functions)
+BuildRequires:	perl(File::Temp)
+BuildRequires:	perl(Symbol)
+BuildRequires:	perl(Text::ParseWords)
+BuildRequires:	perl-devel
 
-BuildArch: noarch
+BuildArch:	noarch
 
 %description
 _perldoc_ looks up a piece of documentation in .pod format that is embedded
@@ -43,10 +40,10 @@ If you are looking for a table of contents to the Perl library modules
 documentation, see the the perltoc manpage page.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{modname}-%{modver}
 
 %build
-%__perl Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
@@ -58,11 +55,12 @@ documentation, see the the perltoc manpage page.
 %files
 %doc Changes README META.yml
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
 %{_bindir}/perldoc
 
 %changelog
 * Sat Dec 29 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 3.170.0-1
+- cleanups
 - new version
 
 * Sun Jan 22 2012 Oden Eriksson <oeriksson@mandriva.com> 3.150.0-5mdv2012.0
