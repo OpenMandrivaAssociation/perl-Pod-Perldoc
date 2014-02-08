@@ -9,7 +9,7 @@
 
 Name:		perl-%{modname}
 Version:	%{perl_convert_version %{modver}}
-Release:	2
+Release:	3
 
 Summary:	Customized option parser for Pod::Perldoc
 License:	GPL+ or Artistic
