@@ -1,5 +1,5 @@
 %define	modname	Pod-Perldoc
-%define modver 3.20
+%define modver 3.21
 
 %if %{_use_internal_dependency_generator}
 %define __noautoreq 'perl\\(Tk\\)|perl\\(Tk::Pod\\)'
@@ -55,5 +55,6 @@ perl Makefile.PL INSTALLDIRS=vendor
 %{perl_vendorlib}/*
 %{_mandir}/man3/*
 %{_mandir}/man1/perldoc.1.xz
+
 
 

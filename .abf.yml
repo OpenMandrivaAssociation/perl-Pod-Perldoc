@@ -1,4 +1,5 @@
 removed_sources:
   Pod-Perldoc-3.17.tar.gz: 698ea5e85f320bcedff1261ca0a27c3a9b6dd16c
-sources:
   Pod-Perldoc-3.20.tar.gz: 2a0bad00fe93fba122aee513b68d5ee211af5571
+sources:
+  Pod-Perldoc-3.21.tar.gz: 4de44bc9da1e2696c0040394c58562e2ec0f5f4e
