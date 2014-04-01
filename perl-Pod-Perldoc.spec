@@ -57,6 +57,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 %{_mandir}/man3/*
 # %{_mandir}/man1/perldoc.1.xz
 %{_mandir}/man1/perldoc.1
+%{_mandir}/man1/perldoc.1*
 
 
 
