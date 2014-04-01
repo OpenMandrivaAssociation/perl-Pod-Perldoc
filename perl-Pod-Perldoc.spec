@@ -1,5 +1,5 @@
 %define	modname	Pod-Perldoc
-%define modver 3.21
+%define modver 3.23
 
 %if %{_use_internal_dependency_generator}
 %define __noautoreq 'perl\\(Tk\\)|perl\\(Tk::Pod\\)'
@@ -8,13 +8,14 @@
 %endif
 
 Summary:	Customized option parser for Pod::Perldoc
+
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
 Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
-Source0:	http://www.cpan.org/modules/by-module/Pod/Pod-Perldoc-%{modver}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Pod/%{modname}-%{modver}.tar.gz
 BuildArch:	noarch
 BuildRequires:	perl(Fcntl)
 BuildRequires:	perl(File::Spec::Functions)
@@ -56,6 +57,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 %{_mandir}/man3/*
 # %{_mandir}/man1/perldoc.1.xz
 %{_mandir}/man1/perldoc.1
+
 
 
 
