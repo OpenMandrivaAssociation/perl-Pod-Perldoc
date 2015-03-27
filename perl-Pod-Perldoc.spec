@@ -1,5 +1,5 @@
 %define	modname	Pod-Perldoc
-%define modver 3.24
+%define modver 3.25
 
 %if %{_use_internal_dependency_generator}
 %define __noautoreq 'perl\\(Tk\\)|perl\\(Tk::Pod\\)'
@@ -11,7 +11,7 @@ Summary:	Customized option parser for Pod::Perldoc
 
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	3
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
